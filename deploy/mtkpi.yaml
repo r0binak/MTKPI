@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mtkpi-pod
+  labels:
+    app: mtkpi
+spec:
+  containers:
+  - name: mtkpi-pod
+    image: r0binak/mtkpi:v1
+    ports:
+    - containerPort: 7681
