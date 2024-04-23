@@ -93,7 +93,6 @@ curl -s  https://api.github.com/repos/aquasecurity/kube-hunter/releases/latest |
 curl -s https://raw.githubusercontent.com/kubescape/kubescape/master/install.sh | /bin/bash;
 
 #Install kube-bench
-echo "install kube-bench"
 #curl -LO https://github.com/aquasecurity/kube-bench/releases/download/v0.6.19/kube-bench_0.6.19_linux_amd64.deb && \
 curl -s  https://api.github.com/repos/aquasecurity/kube-bench/releases/latest | grep "browser_download_url.*_linux_amd64.deb" |  cut -d : -f 2,3 | tr -d \" | wget -qi - -O kube-bench.deb \
     && dpkg -i kube-bench.deb \
