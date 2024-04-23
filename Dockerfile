@@ -1,5 +1,5 @@
 FROM docker.io/tsl0922/ttyd:latest
-LABEL maintainer="r0binak"
+LABEL maintainer="dab solutions"
 
 EXPOSE 7681
 
