@@ -10,3 +10,17 @@ spec:
     image: r0binak/mtkpi:v1
     ports:
     - containerPort: 7681
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mtkpi-svc
+  labels:
+    app: mtkpi
+spec:
+  type: ClusterIP
+  ports:
+  - port: 7681
+    protocol: TCP
+  selector:
+    app: mtkpi
