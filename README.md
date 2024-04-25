@@ -65,6 +65,8 @@ For fast deployment, run the following command:
 kubectl apply -f https://raw.githubusercontent.com/r0binak/MTKPI/main/deploy/mtkpi.yaml
 ```
 
+It will create the pod and the service for you. Alternatively, you can manually run the followings:
+
 Pod:
 ```yaml
 apiVersion: v1
