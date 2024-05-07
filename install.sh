@@ -64,7 +64,7 @@ $CURL -LO https://storage.googleapis.com/kubernetes-release/release/`kurl -s htt
     && rm ./k;
 
 #Install amicontained
-$CURL -s  https://api.github.com/repos/genuinetools/amicontainerd/releases/latest | grep "browser_download_url.*-linux-amd64" |  cut -d : -f 2,3 | tr -d \" | $WGET -qi - \
+$CURL -s  https://api.github.com/repos/genuinetools/amicontained/releases/latest | grep "browser_download_url.*-linux-amd64" |  cut -d : -f 2,3 | tr -d \" | $WGET -qi - \
     && install amicontained-linux-amd64 /usr/local/bin/amicontained \
     && rm -rf ./amicontained-linux-amd64;
 
