@@ -80,7 +80,7 @@ metadata:
 spec:
   containers:
   - name: mtkpi-pod
-    image: r0binak/mtkpi:v1
+    image: dabsolutions/mtkpi:v1.3
     ports:
     - containerPort: 7681
     securityContext:
