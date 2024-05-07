@@ -58,7 +58,7 @@ $CURL -s  https://api.github.com/repos/quarkslab/kdigger/releases/latest | grep 
     && rm -rf kdigger-linux-amd64*;
 
 # Install kubectl
-$CURL -LO https://storage.googleapis.com/kubernetes-release/release/`kurl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl \
+$CURL -LO https://storage.googleapis.com/kubernetes-release/release/`$CURL -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl \
     && mv kubectl k \
     && install ./k /usr/local/bin/ \
     && rm ./k;
