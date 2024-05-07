@@ -4,14 +4,14 @@ WGET="wget"
 CURL="curl"
 PYTHON3="python3"
 
-
 if [ $BYPASS_FALCO ]; then
-    mv /usr/bin/python3 /usr/bin/pton3 \
-        && mv /usr/bin/curl /usr/bin/kurl \
-        && mv /usr/bin/wget /usr/bin/vget;
-
-    WGET="vget"
+    mv /usr/bin/curl /usr/bin/kurl
     CURL="kurl"
+
+    mv /usr/bin/wget /usr/bin/vget;
+    WGET="vget"
+
+    mv /usr/bin/python3 /usr/bin/pton3
     PYTHON3="pton2"
 fi
 
