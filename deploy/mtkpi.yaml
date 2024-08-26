@@ -7,6 +7,6 @@ metadata:
 spec:
   containers:
   - name: mtkpi-pod
-    image: r0binak/mtkpi:v1
+    image: r0binak/mtkpi:v1.4
     ports:
     - containerPort: 7681
