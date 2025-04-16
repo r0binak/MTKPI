@@ -1,12 +1,91 @@
 apiVersion: v1
-kind: Pod
+kind: Namespace
 metadata:
-  name: mtkpi-pod
+  name: pentest
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: mtkpi-sa
+  namespace: pentest
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: mtkpi-role
+  namespace: pentest
+rules:
+- apiGroups:
+  - '*'
+  resources:
+  - '*'
+  verbs:
+  - '*'
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: mtkpi-bind
+  namespace: pentest
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: mtkpi-role
+subjects:
+- kind: ServiceAccount
+  name: mtkpi-sa
+  namespace: pentest
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mtkpi
+  namespace: pentest
   labels:
     app: mtkpi
 spec:
-  containers:
-  - name: mtkpi-pod
-    image: r0binak/mtkpi:v1.4
-    ports:
-    - containerPort: 7681
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mtkpi
+  template:
+    metadata:
+      labels:
+        app: mtkpi
+    spec:
+      serviceAccountName: mtkpi-sa
+      hostNetwork: true
+      hostPID: true
+      hostIPC: true
+      containers:
+      - name: mtkpi
+        image: r0binak/mtkpi:v1.5
+        securityContext:
+          privileged: true
+        volumeMounts:
+        - mountPath: /host
+          name: noderoot
+      volumes:
+      - name: noderoot
+        hostPath:
+          path: /
+      tolerations:
+        - key: ""
+          operator: "Exists"
+          effect: "NoSchedule"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mtkpi
+  namespace: pentest
+  labels:
+    app: mtkpi
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 7681
+    targetPort: 7681
+    protocol: TCP
+  selector:
+    app: mtkpi
