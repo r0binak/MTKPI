@@ -9,7 +9,7 @@ curl -LO https://github.com/liamg/traitor/releases/download/v0.0.14/traitor-amd6
     && rm -rf traitor-amd64;
 
 # Install kubeletctl
-curl -LO https://github.com/cyberark/kubeletctl/releases/download/v1.12/kubeletctl_linux_amd64 \
+curl -LO https://github.com/cyberark/kubeletctl/releases/download/v1.13/kubeletctl_linux_amd64 \
     && install kubeletctl_linux_amd64 /usr/local/bin/kubeletctl \
     && rm -rf kubeletctl_linux_amd64;
 
@@ -20,12 +20,12 @@ curl -LO https://github.com/cyberark/kubesploit/releases/download/v0.1.3/kubespl
     && rm -rf kubesploitAgent-Linux-x64*;
 
 # Install CDK
-curl -LO https://github.com/cdk-team/CDK/releases/download/v1.5.3/cdk_linux_amd64 \
+curl -LO https://github.com/cdk-team/CDK/releases/download/v1.5.5/cdk_linux_amd64 \
     && install cdk_linux_amd64 /usr/local/bin/cdk \
     && rm -rf cdk_linux_amd64;
 
 # Install peirates
-curl -L https://github.com/inguardians/peirates/releases/download/v1.1.23/peirates-linux-amd64.tar.xz \
+curl -L https://github.com/inguardians/peirates/releases/download/v1.1.25/peirates-linux-amd64.tar.xz \
     | tar -xJ peirates-linux-amd64/peirates \
     && install peirates-linux-amd64/peirates /usr/local/bin/ \
     && rm -rf peirates-linux-amd64;
@@ -83,14 +83,14 @@ curl -LO https://github.com/aquasecurity/kube-hunter/releases/download/v0.6.8/ku
 curl -s https://raw.githubusercontent.com/kubescape/kubescape/master/install.sh | /bin/bash;
 
 #Install kube-bench
-curl -LO https://github.com/aquasecurity/kube-bench/releases/download/v0.8.0/kube-bench_0.8.0_linux_amd64.deb && \
-    dpkg -i kube-bench_0.8.0_linux_amd64.deb && \
-    rm -f kube-bench_0.8.0_linux_amd64.deb;
+curl -LO https://github.com/aquasecurity/kube-bench/releases/download/v0.10.4/kube-bench_0.10.4_linux_amd64.deb && \
+    dpkg -i kube-bench_0.10.4_linux_amd64.deb && \
+    rm -f kube-bench_0.10.4_linux_amd64.deb;
 
 #Install etcdctl
-curl -OL https://github.com/etcd-io/etcd/releases/download/v3.3.13/etcd-v3.3.13-linux-amd64.tar.gz && \
-    tar -xzvf etcd-v3.3.13-linux-amd64.tar.gz && cp etcd-v3.3.13-linux-amd64/etcdctl /usr/local/bin && \
-    chmod +x /usr/local/bin/etcdctl && rm -rf etcd-v3.3.13-linux-amd64 && rm -f etcd-v3.3.13-linux-amd64.tar.gz;
+curl -OL https://github.com/etcd-io/etcd/releases/download/v3.5.21/etcd-v3.5.21-linux-amd64.tar.gz && \
+    tar -xzvf etcd-v3.5.21-linux-amd64.tar.gz && cp etcd-v3.5.21-linux-amd64/etcdctl /usr/local/bin && \
+    chmod +x /usr/local/bin/etcdctl && rm -rf etcd-v3.5.21-linux-amd64 && rm -f etcd-v3.5.21-linux-amd64.tar.gz;
 
 #Install DDexec
 curl -LO https://raw.githubusercontent.com/arget13/DDexec/main/ddexec.sh \
@@ -104,8 +104,8 @@ curl -LO https://github.com/nccgroup/kubetcd/releases/download/v1.28/kubetcd_lin
     && rm ./kubetcd_linux_amd64;
 
 # Install k8spider
-curl -LO https://github.com/Esonhugh/k8spider/releases/download/v2.4.0/k8spider_v2.4.0_linux_amd64.tar.gz \
-    && tar -xzvf k8spider_v2.4.0_linux_amd64.tar.gz && install ./k8spider /usr/local/bin  \
+curl -LO https://github.com/Esonhugh/k8spider/releases/download/v3.0.1/k8spider_v3.0.1_linux_amd64.tar.gz \
+    && tar -xzvf k8spider_v3.0.1_linux_amd64.tar.gz && install ./k8spider /usr/local/bin  \
     && rm ./k8spider && rm ./README.md;
 
 #Simple Bypass Falco
